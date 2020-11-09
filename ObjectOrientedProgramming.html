@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <title>myBooklist</title> 
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="page-header">
+                
+            </div>
+            <div class="page-main">
+                <div class="split left">
+                    <img src="images/book-863418_1280.jpg" style="height: 85px;width: 85px;" class="main-img">
+                    <img src="images/mylogo.png" class="logo">
+                    <!--Add a book-->
+                    <div class="add-book">
+                        <h1>Add a Book</h1>
+                            <form>
+                                <input type="text" id="book-id" name="book" placeholder="Title, Author" required>
+                                <button class="add">+ Add a Book</button>
+                            </form>
+                    </div>
+                </div>
+                <div class="split right">
+                    <div class="booklist">
+                        <!--displaying booklist-->
+                        <h1>Booklist</h1>
+                        <ul class="books">
+                            <!--to attach books-->
+                            <li>The Alchemist by Paulo Coelho
+                                <div class="edit-delete">
+                                    <i class="fa fa-pencil" aria-hidden="true" style="color: #e52165;"></i>
+                                    <i class="fa fa-trash" aria-hidden="true" style="color: #103c5a;"></i>
+                                </div>
+                            </li>
+                            <li>Becoming by Mitchelle Obama
+                                <div class="edit-delete">
+                                    <i class="fa fa-pencil edit" aria-hidden="true" style="color: #e52165;"></i>
+                                    <i class="fa fa-trash delete" aria-hidden="true" style="color: #103c5a;"></i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="quote">
+                        <blockquote cite="George R.R. Martin, A Dance with Dragons">	
+                            <p>A reader lives a thousand lives before he dies...The man who never reads lives only one</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="page-footer">
+
+            </div>
+        </div>
+
+    
+    <script src="oop.js"></script>
+    </body>
+</html>

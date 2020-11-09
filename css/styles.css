@@ -1,0 +1,192 @@
+/*CREDITS:
+Image by <a href="https://pixabay.com/users/mysticsartdesign-322497/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=863418">Mystic Art Design</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=863418">Pixabay</a>
+*/
+
+/*basic styling */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	/*formatting text */
+	font-size: 85%;
+	font-family: "Montserrat", Georgia, serif;
+
+    line-height: 2;
+}
+h1 {
+    letter-spacing: 4px; 
+    word-spacing: 8px;  	
+}
+
+/* 
+----------------------------------------------------------------------
+split the screen in half */
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}  
+@media screen and (max-width: 600px) {
+    .split {
+      width: 100%;
+      min-height: 80vh;
+      position: relative;
+    }
+  }
+/*control the left side */
+.left {
+    left: 0;
+    background-color: #0d1137;
+}
+/*control the right side */
+.right {
+    right: 0;
+}
+.right::before {
+	content: "";
+	background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url(../images/book-863418_1280.jpg) no-repeat center/cover;
+    position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	opacity: 0.5;
+}
+/*
+----------------------------------------------------------------------
+.left content styling */
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;	/*vertically justified center*/
+	align-items: center;	/*horizontally justified center*/
+	flex-grow: 1;	/*expands to cover available space inside the flex container*/
+}
+.main-img{
+    border-radius: 50%;
+}
+/*header styling */
+.left h1 {
+    font-size: 1.2em;
+    color: white;
+    margin-top: 40px;
+} 
+/*button styling */
+input, button {
+    padding: 5px 8px;
+    margin: 5px 0;
+    border-radius: 6px;
+    border: none;
+}
+
+@media screen and (max-width: 900px) {
+	input {
+        display: block;
+    }   
+}
+button {
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+/*different colors for different buttons*/
+.add {
+    background: rgba(229, 33, 101, 0.7);
+}
+.add:hover {
+    background: rgba(229, 33, 101, 1);
+}
+/*
+----------------------------------------------------------------------
+.right content styling */
+.right {
+    display: flex;
+    flex-direction: column;
+}
+/*header styling */
+.right h1 {
+    font-size: 1.5em;
+    color: black;
+    text-shadow: .1em .1em .2em rgba(229, 33, 101, 0.7); /*text-shadow: horizontal_offset vertical_offset blur_radius color*/
+}
+.booklist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;	/*vertically justified center*/
+	align-items: center;	/*horizontally justified center*/
+	flex-grow: 1;	/*expands to cover available space inside the flex container*/
+}
+
+/*list styling */
+li {
+    font-family: "Marko One";
+    font-weight: bold;
+    display: block;
+    overflow: hidden;
+    
+    padding: 8px;
+    border-bottom: rgba(229, 33, 101, 0.2) dashed 1px;
+
+}
+li:before {
+    content: "\2605";
+    color: #e52165;
+    opacity: 0.7;
+    margin-right: 8px;
+    display: inline-block;
+    line-height: 2; 
+}
+.edit-delete {
+    float: right;
+    margin-left: 40px;
+}
+i {
+    margin: 2px;
+}
+/*blockquote*/
+blockquote {
+    display: block;
+    padding: 1.5em 0 0.5em;
+    margin: 1.5em 1.5em;
+    position: relative;
+
+    
+}
+blockquote p {
+    font-family: "Rosellinda Alyamore";
+    font-size: 1.5em;
+}
+blockquote:before {
+    content: '\201C';
+    position: absolute;
+    top: 0em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #a2570a);
+    width: 1rem;
+    height: 1rem;
+    font: 3.5em/1.5em serif;
+    color: #a2570a;
+    text-align: center;
+}
+blockquote:after {
+    content: "\2013 \2003" attr(cite);
+    display: block;
+    text-align: right;
+    font-size: 0.6em;
+    font-weight: bolder;
+    color: #103c5a;
+}
+.quote {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;	/*horizontally justified center*/
+}
