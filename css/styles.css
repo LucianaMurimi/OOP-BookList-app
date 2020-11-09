@@ -161,8 +161,8 @@ blockquote {
     
 }
 blockquote p {
-    font-family: "Rosellinda Alyamore";
-    font-size: 1.5em;
+    font-family: "Lucida Calligraphy", "Marko One", serif;
+    font-size: 0.7em;
 }
 blockquote:before {
     content: '\201C';
