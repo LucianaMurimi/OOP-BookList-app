@@ -162,6 +162,7 @@ blockquote {
 }
 blockquote p {
     font-family: "Lucida Calligraphy", "Marko One", serif;
+    font-style: italic;
     font-size: 0.7em;
 }
 blockquote:before {
