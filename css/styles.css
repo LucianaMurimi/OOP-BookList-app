@@ -1,5 +1,5 @@
 /*CREDITS:
-Image by <a href="https://pixabay.com/users/mysticsartdesign-322497/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=863418">Mystic Art Design</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=863418">Pixabay</a>
+Background-image by <a href="https://pixabay.com/users/mysticsartdesign-322497/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=863418">Mystic Art Design</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=863418">Pixabay</a>
 */
 
 /*basic styling */
@@ -47,19 +47,12 @@ split the screen in half */
 /*control the right side */
 .right {
     right: 0;
-}
-.right::before {
-	content: "";
-	background: linear-gradient(
+    background: #f2f2f2;
+    background: linear-gradient(
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
-    ), url(../images/book-863418_1280.jpg) no-repeat center/cover;
-    position: absolute;
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
-	opacity: 0.5;
+    ), #a9a9a9 url(../images/book-863418_1280.jpg) no-repeat center/cover;
+    background-blend-mode: soft-light;
 }
 /*
 ----------------------------------------------------------------------
@@ -144,12 +137,14 @@ li:before {
     display: inline-block;
     line-height: 2; 
 }
-.edit-delete {
-    float: right;
-    margin-left: 40px;
+.delete {
+    cursor: pointer;
 }
 i {
-    margin: 2px;
+    color: #e52165;
+    float: right;
+    padding: 8px;
+    margin-left: 40px;
 }
 /*blockquote*/
 blockquote {

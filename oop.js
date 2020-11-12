@@ -9,6 +9,7 @@ class Book {
     constructor(bookArr){
         this.title = bookArr[0];
         this.author = bookArr[1];
+        this.id = new Date().getTime();
     }       
 }
 class UI {
@@ -18,20 +19,38 @@ class UI {
     
         //2. Get the ul to attach the li elements
         let ul = document.querySelector('.books');
-        
+        ul.innerHTML = ' ';
         //3. Loop through each element in the array creating a list item
         for(let i in books){
             let li = document.createElement('li');
+            li.setAttribute("id", `${books[i].id}`);
             li.innerHTML = (`
                 ${books[i].title} by ${books[i].author}
-                <div class="edit-delete">
-                    <i class="fa fa-pencil" aria-hidden="true" style="color: #e52165;"></i>
-                    <i class="fa fa-trash" aria-hidden="true" style="color: #103c5a;"></i>
-                </div>
+                <span class="delete"><i class="fa fa-trash"></i></span>
             `);
             ul.append(li);
+        }        
+    }
+    static listenForDelete() {
+        let listItems = document.querySelectorAll('.delete');
+        let books = Store.getBooks();  
+
+        for (let item of listItems){
+            item.addEventListener("click", (e)=>{
+                let deleteItemID = e.target.closest('li').id;
+
+                let arrIndex = books.findIndex(book => book.id == deleteItemID);
+                books.splice(arrIndex, 1);
+                //step 4. reset the `completedItems` localStorage to reflect only the remaining completed tasks
+                localStorage.removeItem('books');
+                localStorage.setItem('books', JSON.stringify(books));
+               
+                let elem = e.target.closest('li');
+                elem.parentNode.removeChild(elem);
+            });
         }
-        
+       
+        //UI.addBookToList()
     }
 }
 
@@ -69,7 +88,10 @@ document.querySelector('.add').addEventListener('click', (e)=>{
 
 
 //Load the booklist on loading content
-document.addEventListener('DOMContentLoaded', UI.addBookToList);
+document.addEventListener('DOMContentLoaded', ()=>{
+    UI.addBookToList();
+    UI.listenForDelete();
+});
 
 
 
