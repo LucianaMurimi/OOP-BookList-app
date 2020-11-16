@@ -10,48 +10,51 @@
     <body>
         <div class="wrapper">
             <div class="page-header">
-                
+                <img src="images/book-863418_1280.jpg" style="height: 90px;width: 90px;" class="main-img">
+                <img src="images/mylogo.png" class="logo">
             </div>
             <div class="page-main">
-                <div class="split left">
-                    <img src="images/book-863418_1280.jpg" style="height: 85px;width: 85px;" class="main-img">
-                    <img src="images/mylogo.png" class="logo">
-                    <!--Add a book-->
-                    <div class="add-book">
-                        <h1>Add a Book</h1>
-                            <form>
-                                <input type="text" id="book-id" name="book" placeholder="Title, Author" required>
-                                <button class="add">+ Add a Book</button>
-                            </form>
-                    </div>
+                <!--Add a book-->
+                <div class="add-book">
+                    <h1>Add a Book</h1>
+                    <form>
+                        <input type="text" id="book-id" name="book" placeholder="Title, Author" required>
+                        <button class="add">+ Add Book</button>
+                    </form>
                 </div>
-                <div class="split right">
-                    <div class="booklist">
-                        <!--displaying booklist-->
-                        <h1>Booklist</h1>
-                        <ul class="books">
-                            <!--to attach books-->
-                            <!--<li>The Alchemist by Paulo Coelho
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </li>
-                            <li>Becoming by Mitchelle Obama
-                                <i class="fa fa-trash delete" aria-hidden="true"></i>
-                            </li>-->
-                        </ul>
-                    </div>
-                    <div class="quote">
-                        <blockquote cite="George R.R. Martin, A Dance with Dragons">	
-                            <p>A reader lives a thousand lives before he dies...The man who never reads lives only one</p>
-                        </blockquote>
-                    </div>
+                <div class="booklist">
+                    <!--displaying booklist-->
+                    <h1>Booklist</h1>
+                    <ul class="books">
+                        <!--to attach books-->
+                        <!--<li>The Alchemist by Paulo Coelho
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </li>
+                        <li>Becoming by Mitchelle Obama
+                            <i class="fa fa-trash delete" aria-hidden="true"></i>
+                        </li>-->
+                    </ul>
                 </div>
+                <div class="search-book">
+                    <div class="autocomplete" style="width:300px;">
+                        <h1>Search for a Book</h1>
+                        <form autocomplete="off">
+                            <input type="text" id="searchID" name="bookSearch" placeholder="Book to search ..." </i>
+                            <button class="search" onclick="UI.createSearchList()">Search</button>
+                        </form>
+                        <ul class="search-results"></ul>
+                    </div>
+                </div> 
             </div>
             <div class="page-footer">
-
+                <div class="quote">
+                    <blockquote cite="George R.R. Martin, A Dance with Dragons">	
+                        <p>A reader lives a thousand lives before he dies...The man who never reads lives only one</p>
+                    </blockquote>
+                </div>
             </div>
         </div>
 
-    
     <script src="oop.js"></script>
     </body>
 </html>
