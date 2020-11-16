@@ -31,12 +31,13 @@ class UI {
             ul.append(li);
         }        
     }
-    static createSearchList(listItems) {
+    static createSearchList() {
         let searchItem = document.getElementById('searchID').value;
-
+        
         if(searchItem !== ''){
             let books = Store.getBooks();
-            let searchRes = books.filter(book=>book.title.includes(searchItem) || book.author.includes(searchItem));
+            let searchRes = books.filter(book=>book.title.toUpperCase().includes(searchItem.toUpperCase()) || 
+                                                book.author.toUpperCase().includes(searchItem.toUpperCase()));
             
             let ul = document.querySelector('.search-results');
             ul.innerHTML = ' ';
@@ -51,6 +52,17 @@ class UI {
                 ul.append(li);
             }       
         }
+        function closeAllLists(){
+            //close all autocomplete lists in the document,
+            let x = document.querySelector(".search-results");
+            for (let i = 0; i < x.length; i++) {
+                x[i].removeChild(x[i]);
+            }
+        }
+        /*also, close all lists when someone clicks anywhere elese on the document:*/
+        document.addEventListener("click", function (e) {
+            closeAllLists(e.target);
+        });
         
     }
     static listenForDelete() {
@@ -100,12 +112,15 @@ class Store {
         */
        
         /*execute a function when someone writes in the text field:*/
+        
         inp.addEventListener('input', e => {
             let ul, liItem, val = e.target.value;
             //console.log(e.target.value)
             
             /*close any already open lists of autocompleted values*/
             closeAllLists();
+            let unli = document.querySelector('.search-results');
+            unli.innerHTML = ' ';
 
             if (!val) { return false;}  //if there is no value entered, exit; do not show any list
             
@@ -157,12 +172,6 @@ class Store {
         });
 
     }
-    /*static getSearchItems(item) {
-        let books = Store.getBooks();
-        let searchRes = books.filter(book=>book.title.includes(item) || book.author.includes(item));
-        UI.createSearchList(searchRes);
-        
-    }*/
     
 }
 
@@ -192,7 +201,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     UI.listenForDelete();
     //Store.autocomplete(theInput, theArray)
     Store.autocomplete(document.getElementById('searchID'), Store.searchList());
-    UI.createSearchList(document.getElementById('searchID').value);
 });
 
 
