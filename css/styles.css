@@ -139,7 +139,9 @@ Autocomplete search*/
 .litems:before {
     content: '';
 }
-
+.search-results li {
+    border: none;
+}
 /*
 ===============================================================================
 Page footer
