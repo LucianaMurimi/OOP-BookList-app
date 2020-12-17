@@ -182,6 +182,7 @@ blockquote:after {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;	/*horizontally justified center*/
+
 }
 
 

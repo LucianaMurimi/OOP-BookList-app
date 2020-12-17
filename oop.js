@@ -42,14 +42,22 @@ class UI {
             let ul = document.querySelector('.search-results');
             ul.innerHTML = ' ';
             
-            //Loop through each element in the array creating a list item
-            for(let i in searchRes ){
-                let li = document.createElement('li');
-                li.setAttribute("id", `${searchRes[i].id}`);
-                li.innerHTML = (`
-                    ${searchRes[i].title} <span class="author">by ${searchRes[i].author}<span>
+            if(searchRes == ''){
+                let p = document.createElement('p');
+                p.innerHTML = (`
+                    No such record as ${searchItem} in the book list.
                 `);
-                ul.append(li);
+                ul.append(p);
+            }else {
+                //Loop through each element in the array creating a list item
+                for(let i in searchRes ){
+                    let li = document.createElement('li');
+                    li.setAttribute("id", `${searchRes[i].id}`);
+                    li.innerHTML = (`
+                        ${searchRes[i].title} <span class="author">by ${searchRes[i].author}<span>
+                    `);
+                    ul.append(li);
+                }
             }       
         }
         function closeAllLists(){
